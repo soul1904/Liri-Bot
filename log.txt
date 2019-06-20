@@ -34,3 +34,4 @@ C:\Program Files\nodejs\node.exe c:\Users\behza\Desktop\Liri-Bot\liri.js movie-t
 
 
 
+C:\Program Files\nodejs\node.exe c:\Users\behza\Desktop\Liri-Bot\liri.js movie-this

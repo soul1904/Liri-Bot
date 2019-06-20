@@ -41,7 +41,7 @@ var Song = function (song) {
             fs.appendFile("log.txt", output + "\n", (err) => { if (err) throw err; });
         } else {
             console.log("Could not find a match for " + song + " on Spotify");
-            fs.appendFile("log.txt", `Could not find a match for "${song}" on Spotify\n`, (err) => { if (err) throw err; });
+            fs.appendFile("log.txt", "Could not find a match for " + song + " on Spotify\n");
         }
     })
 };

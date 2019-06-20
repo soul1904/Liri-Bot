@@ -34,4 +34,11 @@ C:\Program Files\nodejs\node.exe c:\Users\behza\Desktop\Liri-Bot\liri.js movie-t
 
 
 
-C:\Program Files\nodejs\node.exe c:\Users\behza\Desktop\Liri-Bot\liri.js movie-this
+C:\Program Files\nodejs\node.exe c:\Users\behza\Desktop\Liri-Bot\liri.js movie-thisC:\Program Files\nodejs\node.exe c:\Users\behza\Desktop\Liri-Bot\liri.js spotify-this-song
+
+
+
+C:\Program Files\nodejs\node.exe c:\Users\behza\Desktop\Liri-Bot\liri.js movie-this avatarC:\Program Files\nodejs\node.exe c:\Users\behza\Desktop\Liri-Bot\liri.js movie-this Avengers EndgameC:\Program Files\nodejs\node.exe c:\Users\behza\Desktop\Liri-Bot\liri.js spotify-this-song medication
+
+
+

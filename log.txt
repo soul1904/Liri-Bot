@@ -1,0 +1,36 @@
+C:\Program Files\nodejs\node.exe c:\Users\behza\Desktop\Liri-Bot\liri.js spotify-this-songArtist(s): Harry Styles
+Song name: Sign of the Times
+Preview: https://p.scdn.co/mp3-preview/af237206f611b722f48620ece049aff3b8650e77?cid=0dffaee474e24672beae62ec41ed0d06
+Album: Harry Styles
+C:\Program Files\nodejs\node.exe c:\Users\behza\Desktop\Liri-Bot\liri.js spotify-this-song haloArtist(s): Beyoncé
+Song name: Halo
+Preview: https://p.scdn.co/mp3-preview/3c97985f3736fab6d4abcd2067f346a9b30955fa?cid=0dffaee474e24672beae62ec41ed0d06
+Album: I AM...SASHA FIERCE
+C:\Program Files\nodejs\node.exe c:\Users\behza\Desktop\Liri-Bot\liri.js spotify-this-song halo
+
+
+
+C:\Program Files\nodejs\node.exe c:\Users\behza\Desktop\Liri-Bot\liri.js spotify-this-song
+
+
+
+C:\Program Files\nodejs\node.exe c:\Users\behza\Desktop\Liri-Bot\liri.js spotify-this-song
+
+
+
+C:\Program Files\nodejs\node.exe c:\Users\behza\Desktop\Liri-Bot\liri.js spotify-this-song
+
+
+
+C:\Program Files\nodejs\node.exe c:\Users\behza\Desktop\Liri-Bot\liri.js do-what-it-says
+
+
+
+C:\Program Files\nodejs\node.exe c:\Users\behza\Desktop\Liri-Bot\liri.js do-what-it-says
+
+
+
+C:\Program Files\nodejs\node.exe c:\Users\behza\Desktop\Liri-Bot\liri.js movie-this titanicC:\Program Files\nodejs\node.exe c:\Users\behza\Desktop\Liri-Bot\liri.js spotify-this-song
+
+
+

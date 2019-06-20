@@ -1,87 +1,77 @@
 require("dotenv").config();
-var spotifyKeyInfo = require("./keys.js");
+var keys = require("./keys.js");
 
 var fs = require("fs");
 
 var axios = require("axios");
 var Spotify = require('node-spotify-api');
+var spotify = new Spotify(keys.spotify);
+
 var movieName = process.argv[3];
 var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
-
+var Movie = function() {
 axios.get(queryUrl).then(
-    function (response) {
+      function (response) {
         console.log("Title: " + response.data.Title);
         console.log("Release Year: " + response.data.Year);
         console.log("Rated: " + response.data.imdbRating);
-        console.log("Rotten Tomatoes: " + response.data.Ratings[1].Value);
+        console.log("Rotten Tomatoes: " + response.data.Ratings[1]);
         console.log("Country: " + response.data.Country);
         console.log("Language: " + response.data.Language);
         console.log("Plot: " + response.data.Plot);
         console.log("Actors: " + response.data.Actors);
     });
 
+}
+var Song = function (song) {
+    spotify.search({ type: "track", query: (song ? song : "The Sign") }, function (err, body) {
+        if (err) throw err;
 
-function songInfo() {
-    var songName = "";
-    for (var i = 3; i < userInput.length; i++) {
-        if (i > 3 && i < userInput.length) {
-            songName = songName + "+" + userInput[i];
+        var data = body.tracks.items[0];
+        // console.log(data)
+        if (data) {
+            var output = [
+                console.log("Artist(s): " + data.artists[0].name),
+                console.log("Song name: " + data.name),
+                console.log("Preview: " + data.preview_url),
+                console.log("Album: " + data.album.name)
+            ].join("\n");
+
+            console.log(output);
+            fs.appendFile("log.txt", output + "\n", (err) => { if (err) throw err; });
+        } else {
+            console.log("Could not find a match for " + song + " on Spotify");
+            fs.appendFile("log.txt", `Could not find a match for "${song}" on Spotify\n`, (err) => { if (err) throw err; });
         }
-        else {
-            songName += userInput[i];
-        }
-    }
+    })
+};
+var DoWhatItSays = function () {
+    fs.readFile("random.txt", "utf8", function (err, data) {
+        if (err) throw err;
 
-    function showSongInfo(songName) {
-        console.log("I'm showing song information for " + songName);
+        var cmd = data.split(",")[0];
+        var term = data.split(",")[1];
 
-        var spotify = new Spotify(keys.spotifyKeys);
+        executeCommand(cmd, term);
+    });
+};
 
-        // checking to see if NO song name entered
-        var spotify = new Spotify({
-            id: spotifyKeyInfo["spotify"].id,
-            secret: spotifyKeyInfo["spotify"].secret
-        });
-
-        spotify
-        .request('https://api.spotify.com/v1/search?q=track:' + songName + '&type=track&limit=10', function (error, songResponse) {
-            if (error) {
-                return console.log(error);
-            }
-            console.log("Artist Name: " + songResponse.tracks.items[0].artists[0].name);
-            console.log("Song Title: " + songResponse.tracks.items[0].name);
-            console.log("Sample: " + songResponse.tracks.items[0].preview_url);
-            console.log("Album: " + songResponse.tracks.items[0].album.name);
-        });
-    };
-    function doWhatInfo() {
-
-        fs.readFile("random.txt", "utf8", function (error, data) {
-            if (error) {
-                return console.log(error);
-            }
-            var output = data.split(",");
-            for (var i = 0; i < output.length; i++) {
-                console.log(output[i]);
-            }
-        });
-    };
-
-    var userInput = process.argv;
-    var inputTopic = process.argv[3];
-
-    switch (inputTopic) {
-
+var executeCommand = function (cmd, term) {
+    switch (cmd) {
         case "spotify-this-song":
-            songInfo(firstCmd);
+            Song(term);
             break;
-
         case "movie-this":
-            movieInfo();
+            Movie(term);
             break;
-
         case "do-what-it-says":
-            doWhatInfo();
+            DoWhatItSays();
             break;
     }
 }
+const cmd = process.argv[2];
+const term = process.argv.slice(3).join(" ");
+
+fs.appendFile("log.txt", process.argv.join(" "), (err) => { if (err) throw err; });
+
+executeCommand(cmd, term);
